@@ -1,80 +1,103 @@
-import ControleEditora from "./controle/controleLivros.ts";
-import ControleLivros from "./controle/controleLivros.ts";
-import {Livros} from "./modelo/livros.ts"
+import React, { useState, useEffect } from 'react';
+import ControleLivro from "./controle/ControleLivro";
+import ControleEditora from "./controle/ControleEditora";
 
+const controleLivro = new ControleLivro();
+const controleEditora = new ControleEditora();
 
+function LinhaLivro(props) {
+  const [nomeEditora, setNomeEditora] = useState("");
 
+  useEffect(() => {
+    async function getNomeEditora() {
+      const nome = await controleEditora.getNomeEditora(props.livro.codEditora);
+      setNomeEditora(nome);
+    }
 
-const controleEditora = new ControleEditora;
-const controleLivro = new controleLivro;
+    getNomeEditora();
+  }, [props.livro.codEditora]);
 
+  const autores = props.livro.autores.map((autor, index) => <li key={index}>{autor}</li>);
 
-  function linhaLivros({Livros, excluir }) {
-
-  const nomeEditora = ControleEditora.getNomeEditora(Livros.codEditora);
   return (
-    <>
-      <tr>
-      <td>{Livros.titulo}</td>
-      <td>{Livros.resumo}</td>
+    <tr>
+      <td>{props.livro.titulo}</td>
+      <td>{props.livro.resumo}</td>
       <td>{nomeEditora}</td>
-      <td>{Livros.autores.join()}</td>
-        <td><button className='button' onClick={() => excluir(Livros.codigo)}>Excluir</button></td>
-      </tr>
-    </>
-  )
-
+      <td>
+        <ul>
+          {autores}
+        </ul>
+      </td>
+      <td><button onClick={() => props.excluir(props.livro._id)}>Excluir</button></td>
+    </tr>
+  );
 }
 
+function LivrosLista() {
+  const [livros, setLivros] = useState([]);
+  const [carregado, setCarregado] = useState(false);
 
-function App() {
+  useEffect(() => {
+    async function obterLivros() {
+      const listaLivros = await controleLivro.obterLivros();
+      setLivros(listaLivros);
+      setCarregado(true);
+    }
+
+    if (!carregado) {
+      obterLivros();
+    }
+  }, [carregado]);
+
+  function excluirLivro(id) {
+    controleLivro.excluirLivro(id);
+    setLivros(livros.filter(livro => livro._id !== id));
+  }
+
+  const listaLinhas = livros.map(livro => <LinhaLivro key={livro._id} livro={livro} excluir={excluirLivro}/>);
+
   return (
     <div className="App">
       <header>
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
-          <div class="navbar-collapse">
-
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="receitas.html">catálogo</a>
+        <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <div className="navbar-collapse">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link active" href="index.html">Home</a>
               </li>
               <li className="nav-item">
-                <a class="nav-link" href="cadastro.html">Novo</a>
+                <a className="nav-link" href="receitas.html">catálogo</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="cadastro.html">Novo</a>
               </li>
             </ul>
           </div>
         </nav>
       </header>
-      <h1 scope="row" >Titulo</h1>
-      <br />
-      <div className='container'>
-        <div className='tabela'>
+      <h1>Título</h1>
+      <br/>
+      <div className="container">
+        <div className="tabela">
+          <table className="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Resumo</th>
+                <th scope="col">Editora</th>
+                <th scope="col">Autores</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {listaLinhas}
+            </tbody>
+          </table>
         </div>
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">Titulo</th>
-              <th scope="col">resumo</th>
-              <th scope="col">editora</th>
-              <th scope="col">Autores</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <linha />
-
-          </tbody>
-        </table>
       </div>
-
-
-
-
     </div>
   );
 }
 
-export default App;
+export default LivrosLista;

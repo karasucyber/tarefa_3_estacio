@@ -43,3 +43,6 @@ export default class ControleLivro {
         }
     }
 }
+
+
+console.log(Livros);
