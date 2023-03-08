@@ -2,12 +2,12 @@
 export class Livros {
 
    public codigo: number;
-   public  codEditora: number;
-   public  titulo: Text;
-   public  resumo: Text;
-   public autores: Text;
+   public codEditora: number;
+   public titulo: string;
+   public resumo: string;
+   public autores: string[];
 
-    constructor(codigo:number, titulo: Text,resumo: Text,autores: Text ){
+    constructor(codigo:number, titulo: string,resumo: string,autores: string[] ){
 
         this.codigo = codigo;
         
