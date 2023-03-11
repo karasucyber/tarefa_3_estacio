@@ -1,8 +1,7 @@
 
 import './index.css';
 import React from 'react';
-import Tabela  from "./LivrosLista"
-
+import {LivrosLista} from "./LivrosLista.tsx";
 
 
 
@@ -11,7 +10,10 @@ import Tabela  from "./LivrosLista"
 function App() {
   return (
 <>
- <Tabela/>
+ <LivrosLista>
+  
+ </LivrosLista>
+
 </>
     
 
