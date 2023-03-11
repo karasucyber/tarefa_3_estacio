@@ -1,6 +1,6 @@
 import { Livros } from "../modelo/livros";
 
-export default class ControleLivro {
+export default class LivrosControles {
     livros: Livros[] = [
         {
             codigo: 1,
@@ -30,8 +30,7 @@ export default class ControleLivro {
     }
 
     incluir(livro: Livros): void {
-        const novoCodLivro =
-            this.livros.reduce((max, livro) => Math.max(max, livro.codigo), 0) + 1;
+        const novoCodLivro = this.livros.reduce((max, livro) => Math.max(max, livro.codigo), 0) + 1;
         livro.codigo = novoCodLivro;
         this.livros.push(livro);
     }
@@ -45,4 +44,3 @@ export default class ControleLivro {
 }
 
 
-console.log(Livros);
