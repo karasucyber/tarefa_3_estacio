@@ -1,6 +1,6 @@
 import { Livros } from "../modelo/livros";
 
-export default class LivrosControles {
+export class LivrosControles {
     livros: Livros[] = [
         {
             codigo: 1,
