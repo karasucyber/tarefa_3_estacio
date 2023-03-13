@@ -17,17 +17,11 @@ export class ControleEditor{
     getEditoras(){
      return editoras;
     }
-  
-    static getNomeEditora({ codEditora }) {
-  const editoras = [...this.editora];
-  return editoras.filter((editora) => {
-    return editora.codEditora === codEditora;
-  });
-}
+    getNomeEditora(){
+      const editora = editoras.filter( codEditora => editoras)
+      return editoras
+     }
+
+ }
 
 
-
-
- //  //
-
-  }
