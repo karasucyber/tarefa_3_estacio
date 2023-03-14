@@ -1,7 +1,7 @@
 export  class Editora{
     
-     codEditora: number;
-     nome: string;
+    public codEditora: number;
+    public nome: string;
 
  /////////////////////////////////
     
