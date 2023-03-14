@@ -1,7 +1,7 @@
 import { Livros } from "../modelo/livros";
 
 export class LivrosControles {
-    livros: Livros[] = [
+   public livros: Livros[] = [
         {
             codigo: 1,
             codEditora: 1,
@@ -24,6 +24,9 @@ export class LivrosControles {
             resumo: "Capturing a wealth of experience about the design of object-oriented software, four top-notch designers present a catalog of simple and succinct solutions to commonly occurring design problems. Previously undocumented, these 23 patterns allow designers to create more flexible, elegant, and ultimately reusable designs without having to rediscover the design solutions themselves.",
         },
     ];
+    
+   
+
 
     getobterLivros(): Livros[] {
         return this.livros;
