@@ -13,15 +13,22 @@ export const editoras: Editora[] = [
 
 export class ControleEditor{
     static editora: any;
+    
  
     getEditoras(){
      return editoras;
     }
-    getNomeEditora(){
-      const editora = editoras.filter( codEditora => editoras)
-      return editoras
-     }
+  
+    static getNomeEditora({ codEditora }:Editora)  {
+  const editoras = [...this.editora];
+  return editoras.filter((editora) => {
+    return editora.codEditora === codEditora;
+  });
+}
 
- }
 
 
+
+ //  //
+
+  }
