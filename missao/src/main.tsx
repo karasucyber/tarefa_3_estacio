@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./pag/Home"
 import Cadastro from "./pag/Cadastro";
 import "bootstrap/dist/css/bootstrap.min.css" ; 
+import "./App.css" 
 
 
 
