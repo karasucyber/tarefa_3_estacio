@@ -1,29 +1,16 @@
-import Linhas from "./linha"
+import { LivrosControles } from "../controle/controleLivros";
+import { Livros } from "../modelo/livros";
 import React from "react";
 
 
-function Tabela(){
-    return(
-        <>
-        <div className="container text-center"> 
-<table className="table">
-  <thead>
-    <tr>
-      <th scope="col-">titulo</th>
-      <th scope="col">resumo</th>
-      <th scope="col">Editora</th>
-      <th scope="col">Autores</th>
-    </tr>
-  </thead>
-  <tbody>
-    
+export type props ={
+  livro: Livros;
+  controle: LivrosControles;
+  component: React.Dispatch<React.SetStateAction<boolean>>;
+  livros: LivrosControles
+};
 
-  </tbody>
-</table>
-</div>
-      
-        </>
-    );
+export type props2={
+  livros: LivrosControles
 }
 
-export default Tabela;

@@ -1,7 +1,7 @@
 import { Livros } from "../modelo/livros";
 
 export class LivrosControles {
-   public livros: Livros[] = [
+   livros: Livros[] = [
         {
             codigo: 1,
             codEditora: 1,

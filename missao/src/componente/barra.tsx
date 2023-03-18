@@ -3,7 +3,7 @@ import home from "../pag/Home";
 import cadastro from "../pag/Cadastro";
 import {BrowserRouter, To, Link, Outlet} from "react-router-dom"
 
-function barra(){
+function Barra(){
     return (
         <>
        
@@ -24,4 +24,4 @@ function barra(){
     )
 }
 
-export default barra;
+export default Barra;

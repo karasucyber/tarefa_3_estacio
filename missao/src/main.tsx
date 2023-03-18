@@ -6,15 +6,17 @@ import Home from "./pag/Home"
 import Cadastro from "./pag/Cadastro";
 import "bootstrap/dist/css/bootstrap.min.css" ; 
 import "./App.css" 
+import Livrolista from "./componente/Livroslista"
+import { LivrosControles } from './controle/controleLivros';
 
-
+const Livros = new LivrosControles
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route path = "/" element={<App/>}/>
+      <Route path = "/" element={<Livrolista livros={Livros}/>}/>
       <Route path="/Home" element={<Home/>}/>
       <Route path="/cadastro" element={<Cadastro/>}/>
      </Routes>

@@ -7,8 +7,7 @@ const home = () => {
         <Barra></Barra>
         <div className="container text-center"> 
         <h1> Página inicial </h1>
-        <p> Projeto crud  </p>
-        
+        <p> Projeto crud  </p> 
         </div>
          
         
