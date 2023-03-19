@@ -7,10 +7,12 @@ export type props ={
   livro: Livros;
   controle: LivrosControles;
   component: React.Dispatch<React.SetStateAction<boolean>>;
-  livros: LivrosControles
 };
 
-export type props2={
+export type props2 = {
   livros: LivrosControles
 }
 
+export type props3 = {
+  livros: LivrosControles
+}

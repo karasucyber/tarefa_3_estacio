@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client';
-import App from './pag/App';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./pag/Home"
 import Cadastro from "./pag/Cadastro";
 import "bootstrap/dist/css/bootstrap.min.css" ; 
 import "./App.css" 
-import Livrolista from "./componente/Livroslista"
+import Livrolista from "./componente/LinhaTabela"
 import { LivrosControles } from './controle/controleLivros';
+import { } from "./componente/LinhaTabela"
+import LivroDados from './pag/Cadastro';
 
 const Livros = new LivrosControles
 
@@ -18,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Routes>
       <Route path = "/" element={<Livrolista livros={Livros}/>}/>
       <Route path="/Home" element={<Home/>}/>
-      <Route path="/cadastro" element={<Cadastro/>}/>
+      <Route path="/cadastro" element={<LivroDados livros={Livros}/>}/>
      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
