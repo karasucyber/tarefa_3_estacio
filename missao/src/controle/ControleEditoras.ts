@@ -15,13 +15,10 @@ getEditoras() {
   return this.editoras;
 }
 
-
 getNomeEditora(Editoracod: number){
   return this.editoras.filter((editora) => {return editora.codEditora === Editoracod })
 
-}
-
-};
+}};
 
 
         

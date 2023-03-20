@@ -7,12 +7,10 @@ export class Livros {
     public resumo: string;
    public autores: string[];
 
-    constructor(
-        codigo:number,
-         titulo: string
-         ,resumo: string,
-         autores: string[] 
-         ,codEditora:number){
+    constructor( codigo:number,titulo: string,resumo: string,autores: string[] 
+,codEditora:number)
+        
+         {
 
         this.codigo = codigo;
         

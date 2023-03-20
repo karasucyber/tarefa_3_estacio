@@ -5,7 +5,7 @@ export  class Editora{
 
  /////////////////////////////////
     
- constructor(codEditora: number, nome: string) {
+ constructor(nome: string,codEditora: number,) {
 
    this.codEditora = codEditora ;
     
